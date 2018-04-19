@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const qs = require('querystring');
 const ticket = require('./ticket');
-const debug = require('debug')('slash-command-template:index');
+const debug = require('debug')('slash-command-template');
 
 const app = express();
 
@@ -92,6 +92,7 @@ app.post('/interactive-component', (req, res) => {
 
   // check that the verification token matches expected value
   if (body.token === process.env.SLACK_VERIFICATION_TOKEN) {
+    debug (`response:%O`, body);
     debug(`Form submission received: ${body.submission.trigger_id}`);
 
     // immediately respond with a empty 200 response to let
@@ -108,4 +109,5 @@ app.post('/interactive-component', (req, res) => {
 
 app.listen(process.env.PORT, () => {
   console.log(`App listening on port ${process.env.PORT}!`);
+  debug(`App listening on port ${process.env.PORT}!`);
 });
