@@ -4,7 +4,7 @@ const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser');
 const qs = require('querystring');
-const scheduler = require('./ticket');
+const scheduler = require('./scheduler');
 const debug = require('debug')('slack-scheduler');
 
 const app = express();
