@@ -1,5 +1,5 @@
 const axios = require('axios');
-const debug = require('debug')('slash-command-template:ticket');
+const debug = require('debug')('slack-scheduler:scheduler');
 const qs = require('querystring');
 const users = require('./users');
 

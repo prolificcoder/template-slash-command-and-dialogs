@@ -4,8 +4,8 @@ const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser');
 const qs = require('querystring');
-const ticket = require('./ticket');
-const debug = require('debug')('slash-command-template');
+const scheduler = require('./ticket');
+const debug = require('debug')('slack-scheduler');
 
 const app = express();
 
@@ -100,7 +100,7 @@ app.post('/interactive-component', (req, res) => {
     res.send('');
 
     // create Helpdesk ticket
-    ticket.create(body.user.id, body.submission);
+    scheduler.create(body.user.id, body.submission);
   } else {
     debug('Token mismatch');
     res.sendStatus(500);
